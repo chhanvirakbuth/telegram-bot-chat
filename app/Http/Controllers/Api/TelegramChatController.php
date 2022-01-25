@@ -8,8 +8,12 @@ use App\Http\Controllers\Controller;
 class TelegramChatController extends Controller
 {
     public function webHook($token){
-        // get update
+        // while webhook is active cannot call getUpdates
 
+        // delete webhook first then get update , after then setWebhook again
+
+        // get update
+        return $this -> sendMessage($token,'-796330733','Hello');
         $update = $this -> getUpdate($token);
 
         if($update['ok'] && count($update['result']) > 0){
@@ -80,4 +84,5 @@ $chat_type : <i>$chat_title</i>
         curl_close($curl);
         return json_decode($response,true);
     }
+
 }
