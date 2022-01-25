@@ -62,7 +62,8 @@
             "php artisan clear-compiled",
             "chmod -R 777 public/",
             "chmod -R 777 storage/",
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:gen"
         ]
     }
 }
