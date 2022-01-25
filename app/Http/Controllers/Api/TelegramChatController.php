@@ -11,7 +11,8 @@ class TelegramChatController extends Controller
         // get update
 
         $update = $this -> getUpdate($token);
-        if($update['ok']){
+
+        if($update['ok'] && count($update['result']) > 0){
             // check if command is /id then send chat id to current chat
             $update = $update['result'][0];
             switch ($update['message']['text']){
